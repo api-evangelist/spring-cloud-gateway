@@ -1,0 +1,45 @@
+aid: spring-cloud-gateway
+name: Spring Cloud Gateway
+description: >-
+  Spring Cloud Gateway provides an intelligent, programmable router built
+  on Spring WebFlux that offers API gateway functionality for microservices
+  including routing, filtering, load balancing, and rate limiting.
+type: Index
+image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+tags:
+  - API Gateway
+  - Spring
+  - Microservices
+  - Routing
+url: >-
+  https://raw.githubusercontent.com/api-evangelist/spring-cloud-gateway/refs/heads/main/apis.yml
+created: '2026-03-16'
+modified: '2026-03-16'
+specificationVersion: '0.19'
+apis:
+  - aid: spring-cloud-gateway:spring-cloud-gateway-api
+    name: Spring Cloud Gateway API
+    description: >-
+      Intelligent API gateway built on Spring WebFlux offering routing,
+      predicate and filter capabilities, load balancing, circuit breaking,
+      and rate limiting for microservice architectures.
+    humanURL: https://spring.io/projects/spring-cloud-gateway
+    tags:
+      - API Gateway
+      - Routing
+      - Spring WebFlux
+    properties:
+      - type: Documentation
+        url: https://docs.spring.io/spring-cloud-gateway/docs/current/reference/html/
+      - type: Getting Started
+        url: https://spring.io/projects/spring-cloud-gateway#learn
+common:
+  - type: Portal
+    url: https://spring.io/projects/spring-cloud-gateway
+  - type: Documentation
+    url: https://docs.spring.io/spring-cloud-gateway/docs/current/reference/html/
+  - type: Website
+    url: https://spring.io/
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com
