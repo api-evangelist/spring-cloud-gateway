@@ -14,7 +14,7 @@ tags:
 url: >-
   https://raw.githubusercontent.com/api-evangelist/spring-cloud-gateway/refs/heads/main/apis.yml
 created: '2026-03-16'
-modified: '2026-03-16'
+modified: '2026-03-18'
 specificationVersion: '0.19'
 apis:
   - aid: spring-cloud-gateway:spring-cloud-gateway-api
@@ -33,6 +33,30 @@ apis:
         url: https://docs.spring.io/spring-cloud-gateway/docs/current/reference/html/
       - type: Getting Started
         url: https://spring.io/projects/spring-cloud-gateway#learn
+      - type: Reference
+        url: https://docs.spring.io/spring-cloud-gateway/docs/current/reference/html/#gateway-starter
+      - type: GitHubRepository
+        url: https://github.com/spring-cloud/spring-cloud-gateway
+      - type: Change Log
+        url: https://github.com/spring-cloud/spring-cloud-gateway/releases
+  - aid: spring-cloud-gateway:spring-cloud-gateway-actuator-api
+    name: Spring Cloud Gateway Actuator API
+    description: >-
+      The Spring Cloud Gateway Actuator API exposes HTTP endpoints for
+      managing and monitoring gateway routes at runtime, including retrieving
+      route definitions, creating and deleting routes, refreshing the route
+      cache, and querying available filters and metrics.
+    humanURL: https://docs.spring.io/spring-cloud-gateway/docs/current/reference/html/#actuator-api
+    tags:
+      - Actuator
+      - Management
+      - Routes
+      - Monitoring
+    properties:
+      - type: Documentation
+        url: https://docs.spring.io/spring-cloud-gateway/docs/current/reference/html/#actuator-api
+      - type: Reference
+        url: https://docs.spring.io/spring-cloud-gateway/docs/current/reference/html/#retrieving-route-filters
 common:
   - type: Portal
     url: https://spring.io/projects/spring-cloud-gateway
@@ -40,6 +64,16 @@ common:
     url: https://docs.spring.io/spring-cloud-gateway/docs/current/reference/html/
   - type: Website
     url: https://spring.io/
+  - type: Getting Started
+    url: https://spring.io/projects/spring-cloud-gateway#learn
+  - type: GitHubRepository
+    url: https://github.com/spring-cloud/spring-cloud-gateway
+  - type: GitHub Organization
+    url: https://github.com/spring-cloud
+  - type: Change Log
+    url: https://github.com/spring-cloud/spring-cloud-gateway/releases
+  - type: Stack Overflow
+    url: https://stackoverflow.com/questions/tagged/spring-cloud-gateway
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
