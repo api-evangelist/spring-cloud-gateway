@@ -8,9 +8,9 @@ type: Index
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 tags:
   - API Gateway
-  - Spring
   - Microservices
   - Routing
+  - Spring
 url: >-
   https://raw.githubusercontent.com/api-evangelist/spring-cloud-gateway/refs/heads/main/apis.yml
 created: '2026-03-16'
@@ -50,8 +50,8 @@ apis:
     tags:
       - Actuator
       - Management
-      - Routes
       - Monitoring
+      - Routes
     properties:
       - type: Documentation
         url: https://docs.spring.io/spring-cloud-gateway/docs/current/reference/html/#actuator-api
