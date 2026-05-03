@@ -1,0 +1,77 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/api-evangelist/spring-cloud-gateway/json-schema/spring-cloud-gateway-route-schema.json",
+  "title": "Spring Cloud Gateway Route Definition",
+  "description": "JSON Schema for a Spring Cloud Gateway RouteDefinition object used in the Actuator API for creating and managing routes.",
+  "type": "object",
+  "required": ["id", "uri", "predicates"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique route identifier"
+    },
+    "uri": {
+      "type": "string",
+      "description": "Destination URI for matched requests (e.g., lb://service-name, http://backend:8080)"
+    },
+    "predicates": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/PredicateDefinition"
+      },
+      "description": "List of predicates that must match for this route to apply"
+    },
+    "filters": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/FilterDefinition"
+      },
+      "description": "List of gateway filter factories applied to matched requests"
+    },
+    "order": {
+      "type": "integer",
+      "description": "Route priority order (lower number = higher priority)"
+    },
+    "metadata": {
+      "type": "object",
+      "additionalProperties": true,
+      "description": "Additional metadata associated with this route"
+    }
+  },
+  "$defs": {
+    "PredicateDefinition": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Predicate factory name (e.g., Path, Host, Method, Header, Query, Cookie)"
+        },
+        "args": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "description": "Key-value arguments for the predicate factory"
+        }
+      },
+      "required": ["name"]
+    },
+    "FilterDefinition": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Filter factory name (e.g., AddRequestHeader, RewritePath, RequestRateLimiter, CircuitBreaker)"
+        },
+        "args": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "description": "Key-value arguments for the filter factory"
+        }
+      },
+      "required": ["name"]
+    }
+  }
+}

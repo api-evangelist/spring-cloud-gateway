@@ -1,0 +1,322 @@
+naftiko: "1.0.0-alpha1"
+
+info:
+  label: "Spring Cloud Gateway Actuator"
+  description: "Runtime management API for Spring Cloud Gateway providing route CRUD operations, global filter inspection, route filter factory discovery, and predicate factory listing."
+  tags:
+    - Spring Cloud
+    - API Gateway
+    - Route Management
+    - Microservices
+    - Actuator
+  created: "2026-05-02"
+  modified: "2026-05-02"
+
+binds:
+  - namespace: env
+    keys:
+      SPRING_GATEWAY_ACTUATOR_URL: SPRING_GATEWAY_ACTUATOR_URL
+
+capability:
+  consumes:
+    - type: http
+      namespace: spring-cloud-gateway
+      baseUri: "{{SPRING_GATEWAY_ACTUATOR_URL}}"
+      description: "Spring Cloud Gateway Actuator API for runtime route management"
+      resources:
+        - name: routes
+          path: /routes
+          description: "Gateway route definitions"
+          operations:
+            - name: list-routes
+              method: GET
+              description: "List all gateway routes"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+            - name: create-route
+              method: POST
+              description: "Create a new route definition"
+              body:
+                type: json
+                data:
+                  id: "{{tools.routeId}}"
+                  uri: "{{tools.uri}}"
+                  predicates: "{{tools.predicates}}"
+                  filters: "{{tools.filters}}"
+                  order: "{{tools.order}}"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+            - name: get-route
+              method: GET
+              description: "Get a specific route by ID"
+              inputParameters:
+                - name: id
+                  in: path
+                  type: string
+                  required: true
+                  description: "Route identifier"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+            - name: update-route
+              method: PUT
+              description: "Update a route definition"
+              inputParameters:
+                - name: id
+                  in: path
+                  type: string
+                  required: true
+                  description: "Route identifier"
+              body:
+                type: json
+                data:
+                  uri: "{{tools.uri}}"
+                  predicates: "{{tools.predicates}}"
+                  filters: "{{tools.filters}}"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+            - name: delete-route
+              method: DELETE
+              description: "Delete a route definition"
+              inputParameters:
+                - name: id
+                  in: path
+                  type: string
+                  required: true
+                  description: "Route identifier"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+
+        - name: cache-refresh
+          path: /refresh
+          description: "Route cache refresh"
+          operations:
+            - name: refresh-routes
+              method: POST
+              description: "Force refresh of the routes cache"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+
+        - name: global-filters
+          path: /globalfilters
+          description: "Global gateway filters"
+          operations:
+            - name: list-global-filters
+              method: GET
+              description: "List all global filters with their ordering"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+
+        - name: route-filters
+          path: /routefilters
+          description: "Route filter factories"
+          operations:
+            - name: list-route-filter-factories
+              method: GET
+              description: "List all available route filter factories"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+
+        - name: predicates
+          path: /routepredicates
+          description: "Route predicate factories"
+          operations:
+            - name: list-predicate-factories
+              method: GET
+              description: "List all available route predicate factories"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+
+  exposes:
+    - type: rest
+      port: 8120
+      namespace: spring-cloud-gateway-api
+      resources:
+        - path: /v1/routes
+          name: routes
+          description: "Route management"
+          operations:
+            - method: GET
+              name: list-routes
+              description: "List all gateway routes"
+              call: "spring-cloud-gateway.list-routes"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+            - method: POST
+              name: create-route
+              description: "Create a new route"
+              call: "spring-cloud-gateway.create-route"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/routes/{id}
+          name: route-detail
+          description: "Individual route management"
+          operations:
+            - method: GET
+              name: get-route
+              description: "Get route by ID"
+              call: "spring-cloud-gateway.get-route"
+              with:
+                id: "rest.id"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+            - method: PUT
+              name: update-route
+              description: "Update route by ID"
+              call: "spring-cloud-gateway.update-route"
+              with:
+                id: "rest.id"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+            - method: DELETE
+              name: delete-route
+              description: "Delete route by ID"
+              call: "spring-cloud-gateway.delete-route"
+              with:
+                id: "rest.id"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/filters
+          name: filters
+          description: "Global filter inspection"
+          operations:
+            - method: GET
+              name: list-global-filters
+              description: "List all global filters"
+              call: "spring-cloud-gateway.list-global-filters"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+
+    - type: mcp
+      port: 9120
+      namespace: spring-cloud-gateway-mcp
+      transport: http
+      tools:
+        - name: list-gateway-routes
+          description: "List all configured gateway routes including predicates, filters, URIs, and ordering"
+          hints:
+            readOnly: true
+            openWorld: false
+          call: "spring-cloud-gateway.list-routes"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: get-gateway-route
+          description: "Get details of a specific gateway route by its identifier"
+          hints:
+            readOnly: true
+            openWorld: false
+          call: "spring-cloud-gateway.get-route"
+          with:
+            id: "tools.routeId"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: create-gateway-route
+          description: "Create a new gateway route definition with predicates (Path, Host, Method) and filters (StripPrefix, AddRequestHeader, CircuitBreaker)"
+          hints:
+            readOnly: false
+            destructive: false
+            idempotent: false
+          call: "spring-cloud-gateway.create-route"
+          with:
+            routeId: "tools.routeId"
+            uri: "tools.uri"
+            predicates: "tools.predicates"
+            filters: "tools.filters"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: update-gateway-route
+          description: "Update an existing gateway route's URI, predicates, or filters"
+          hints:
+            readOnly: false
+            destructive: false
+            idempotent: true
+          call: "spring-cloud-gateway.update-route"
+          with:
+            id: "tools.routeId"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: delete-gateway-route
+          description: "Delete a gateway route by its identifier"
+          hints:
+            readOnly: false
+            destructive: true
+            idempotent: true
+          call: "spring-cloud-gateway.delete-route"
+          with:
+            id: "tools.routeId"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: refresh-routes-cache
+          description: "Force a refresh of the gateway route cache to pick up configuration changes"
+          hints:
+            readOnly: false
+            destructive: false
+            idempotent: true
+          call: "spring-cloud-gateway.refresh-routes"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: list-global-filters
+          description: "List all global filters applied to every request passing through the gateway"
+          hints:
+            readOnly: true
+            openWorld: false
+          call: "spring-cloud-gateway.list-global-filters"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: list-filter-factories
+          description: "List all available GatewayFilter factory implementations that can be used in route definitions"
+          hints:
+            readOnly: true
+            openWorld: false
+          call: "spring-cloud-gateway.list-route-filter-factories"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: list-predicate-factories
+          description: "List all available RoutePredicateFactory implementations for defining route matching criteria"
+          hints:
+            readOnly: true
+            openWorld: false
+          call: "spring-cloud-gateway.list-predicate-factories"
+          outputParameters:
+            - type: object
+              mapping: "$."

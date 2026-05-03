@@ -1,0 +1,121 @@
+name: Spring Cloud Gateway Vocabulary
+description: Domain vocabulary and taxonomy for Spring Cloud Gateway API gateway concepts, routing, filtering, and management.
+version: "4.1.0"
+created: "2026-05-02"
+modified: "2026-05-02"
+url: https://spring.io/projects/spring-cloud-gateway
+
+terms:
+
+  - term: Route
+    definition: >-
+      The fundamental building block of Spring Cloud Gateway, consisting of an ID, destination
+      URI, a collection of predicates that must match for the route to apply, and a collection
+      of filters applied to the request.
+    category: Core Concept
+    tags:
+      - Routing
+      - Configuration
+
+  - term: Predicate
+    definition: >-
+      A Java 8 Function Predicate that evaluates a ServerWebExchange. Multiple predicates
+      can be combined. Built-in predicates match on Path, Host, Method, Header, Query, Cookie,
+      RemoteAddr, and Weight.
+    category: Routing
+    tags:
+      - Matching
+      - Condition
+
+  - term: Filter
+    definition: >-
+      A GatewayFilter that can modify the inbound request or outbound response. Filters
+      run in a defined order and include AddRequestHeader, RewritePath, CircuitBreaker,
+      RequestRateLimiter, Retry, and many more built-in options.
+    category: Request Processing
+    tags:
+      - Transformation
+      - Middleware
+
+  - term: Global Filter
+    definition: >-
+      A filter that applies to all routes without explicit configuration, handling cross-cutting
+      concerns like load balancing, WebSocket routing, and request forwarding.
+    category: Request Processing
+    tags:
+      - Cross-Cutting
+      - Middleware
+
+  - term: Route Predicate Factory
+    definition: >-
+      A factory component that creates Predicate instances from configuration. Each factory
+      has a name (used in YAML configuration) and associated argument types.
+    category: Configuration
+    tags:
+      - Factory
+      - Routing
+
+  - term: Gateway Filter Factory
+    definition: >-
+      A factory component that creates GatewayFilter instances from configuration. Enables
+      request/response transformation, circuit breaking, rate limiting, and header manipulation.
+    category: Configuration
+    tags:
+      - Factory
+      - Filter
+
+  - term: Circuit Breaker
+    definition: >-
+      A resilience pattern implemented in Spring Cloud Gateway via the CircuitBreaker filter,
+      typically backed by Resilience4J. Trips when upstream failures exceed a threshold,
+      routing to a fallback URI.
+    category: Resilience
+    tags:
+      - Fault Tolerance
+      - Resilience4J
+
+  - term: Rate Limiter
+    definition: >-
+      The RequestRateLimiter filter factory that limits requests per second using a Redis-backed
+      token bucket algorithm. Configurable per key (user, IP, API key).
+    category: Traffic Management
+    tags:
+      - Throttling
+      - Redis
+
+  - term: Load Balancing
+    definition: >-
+      Routing requests to multiple instances of a service using the lb:// URI scheme combined
+      with Spring Cloud LoadBalancer. Supports round-robin and random strategies.
+    category: Traffic Management
+    tags:
+      - Resilience
+      - Service Discovery
+
+  - term: WebFlux
+    definition: >-
+      The reactive web framework on which Spring Cloud Gateway is built. Uses Project Reactor
+      and Netty for non-blocking, event-driven request handling.
+    category: Foundation
+    tags:
+      - Reactive
+      - Non-Blocking
+      - Netty
+
+  - term: Actuator API
+    definition: >-
+      The management HTTP endpoints exposed at /actuator/gateway that allow runtime inspection
+      and manipulation of routes, filters, and predicates without application restart.
+    category: Management
+    tags:
+      - Runtime Management
+      - Operations
+
+  - term: Route Refresh
+    definition: >-
+      The process of reloading route definitions from the configuration source, triggered via
+      the /actuator/gateway/refresh endpoint or Spring Cloud Bus events.
+    category: Operations
+    tags:
+      - Dynamic Configuration
+      - Refresh

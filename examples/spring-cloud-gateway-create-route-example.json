@@ -1,0 +1,58 @@
+{
+  "operation": "createRoute",
+  "method": "POST",
+  "path": "/actuator/gateway/routes",
+  "description": "Create a new gateway route dynamically at runtime",
+  "request": {
+    "headers": {
+      "Content-Type": "application/json",
+      "Accept": "application/json"
+    },
+    "body": {
+      "id": "user-service-route",
+      "uri": "lb://user-service",
+      "predicates": [
+        {
+          "name": "Path",
+          "args": {
+            "pattern": "/api/users/**"
+          }
+        },
+        {
+          "name": "Method",
+          "args": {
+            "methods": "GET,POST,PUT,DELETE"
+          }
+        }
+      ],
+      "filters": [
+        {
+          "name": "StripPrefix",
+          "args": {
+            "parts": "1"
+          }
+        },
+        {
+          "name": "AddRequestHeader",
+          "args": {
+            "name": "X-Gateway-Version",
+            "value": "2.0"
+          }
+        },
+        {
+          "name": "RequestRateLimiter",
+          "args": {
+            "redis-rate-limiter.replenishRate": "100",
+            "redis-rate-limiter.burstCapacity": "200",
+            "key-resolver": "#{@userKeyResolver}"
+          }
+        }
+      ],
+      "order": 10
+    }
+  },
+  "response": {
+    "status": 201,
+    "description": "Route created successfully"
+  }
+}

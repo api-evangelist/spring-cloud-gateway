@@ -1,0 +1,48 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "schema": "https://schema.org/",
+    "spring": "https://spring.io/vocab#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+
+    "RouteDefinition": "spring:RouteDefinition",
+    "PredicateDefinition": "spring:PredicateDefinition",
+    "FilterDefinition": "spring:FilterDefinition",
+    "APIGateway": "spring:APIGateway",
+
+    "id": {
+      "@id": "schema:identifier"
+    },
+    "uri": {
+      "@id": "schema:url"
+    },
+    "predicates": {
+      "@id": "spring:predicates",
+      "@container": "@list"
+    },
+    "filters": {
+      "@id": "spring:filters",
+      "@container": "@list"
+    },
+    "order": {
+      "@id": "spring:order",
+      "@type": "xsd:integer"
+    },
+    "metadata": {
+      "@id": "spring:metadata",
+      "@container": "@index"
+    },
+    "name": {
+      "@id": "schema:name"
+    },
+    "description": {
+      "@id": "schema:description"
+    },
+    "args": {
+      "@id": "spring:args",
+      "@container": "@index"
+    },
+    "SoftwareApplication": "schema:SoftwareApplication",
+    "url": "schema:url"
+  }
+}

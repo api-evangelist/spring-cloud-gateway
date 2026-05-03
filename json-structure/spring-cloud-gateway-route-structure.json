@@ -1,0 +1,35 @@
+{
+  "name": "Spring Cloud Gateway",
+  "description": "Structure documentation for Spring Cloud Gateway Actuator API objects",
+  "version": "4.1.0",
+  "structures": [
+    {
+      "name": "RouteDefinition",
+      "description": "A gateway route that matches incoming requests and forwards them to a destination",
+      "fields": [
+        { "name": "id", "type": "string", "required": true, "description": "Unique route identifier" },
+        { "name": "uri", "type": "string", "required": true, "description": "Destination URI (supports lb:// for load-balanced URIs)" },
+        { "name": "predicates", "type": "array", "required": true, "description": "List of predicate definitions that must all match" },
+        { "name": "filters", "type": "array", "required": false, "description": "List of filter definitions applied to matched requests" },
+        { "name": "order", "type": "integer", "required": false, "description": "Route priority (lower = higher priority)" },
+        { "name": "metadata", "type": "object", "required": false, "description": "Arbitrary metadata associated with the route" }
+      ]
+    },
+    {
+      "name": "PredicateDefinition",
+      "description": "A route predicate definition specifying matching criteria",
+      "fields": [
+        { "name": "name", "type": "string", "required": true, "description": "Predicate factory name (Path, Host, Method, Header, Query, Cookie, Weight)" },
+        { "name": "args", "type": "object", "required": false, "description": "String key-value arguments for the predicate" }
+      ]
+    },
+    {
+      "name": "FilterDefinition",
+      "description": "A gateway filter definition applied to matched requests or responses",
+      "fields": [
+        { "name": "name", "type": "string", "required": true, "description": "Filter factory name (AddRequestHeader, RewritePath, CircuitBreaker, RequestRateLimiter)" },
+        { "name": "args", "type": "object", "required": false, "description": "String key-value arguments for the filter" }
+      ]
+    }
+  ]
+}

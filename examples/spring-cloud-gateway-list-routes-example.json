@@ -1,0 +1,67 @@
+{
+  "operation": "getRoutes",
+  "method": "GET",
+  "path": "/actuator/gateway/routes",
+  "description": "List all configured gateway routes",
+  "request": {
+    "headers": {
+      "Accept": "application/json"
+    }
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "body": [
+      {
+        "id": "user-service-route",
+        "uri": "lb://user-service",
+        "predicates": [
+          {
+            "name": "Path",
+            "args": {"pattern": "/api/users/**"}
+          }
+        ],
+        "filters": [
+          {
+            "name": "StripPrefix",
+            "args": {"parts": "1"}
+          }
+        ],
+        "order": 10,
+        "metadata": {}
+      },
+      {
+        "id": "order-service-route",
+        "uri": "lb://order-service",
+        "predicates": [
+          {
+            "name": "Path",
+            "args": {"pattern": "/api/orders/**"}
+          },
+          {
+            "name": "Header",
+            "args": {"header": "X-API-Version", "regexp": "v2.*"}
+          }
+        ],
+        "filters": [
+          {
+            "name": "StripPrefix",
+            "args": {"parts": "1"}
+          },
+          {
+            "name": "CircuitBreaker",
+            "args": {"name": "orderCircuitBreaker", "fallbackUri": "forward:/fallback/orders"}
+          }
+        ],
+        "order": 20,
+        "metadata": {
+          "optionName": "SpecificResponseTimeout",
+          "connect-timeout": 5000,
+          "response-timeout": 30000
+        }
+      }
+    ]
+  }
+}

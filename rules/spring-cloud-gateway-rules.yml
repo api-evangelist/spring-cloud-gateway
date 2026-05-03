@@ -1,0 +1,88 @@
+extends:
+  - spectral:oas
+
+rules:
+
+  spring-cloud-gateway-operation-id-camel-case:
+    description: Operation IDs must be camelCase
+    message: "Operation ID '{{value}}' must use camelCase"
+    given: "$.paths[*][get,post,put,delete,patch].operationId"
+    severity: warn
+    then:
+      function: pattern
+      functionOptions:
+        match: "^[a-z][a-zA-Z0-9]+$"
+
+  spring-cloud-gateway-summary-title-case:
+    description: All operation summaries must use Title Case
+    message: "Summary '{{value}}' should use Title Case"
+    given: "$.paths[*][get,post,put,delete,patch].summary"
+    severity: warn
+    then:
+      function: pattern
+      functionOptions:
+        match: "^[A-Z]"
+
+  spring-cloud-gateway-tags-required:
+    description: All operations must declare at least one tag
+    message: "Operation is missing tags"
+    given: "$.paths[*][get,post,put,delete,patch]"
+    severity: error
+    then:
+      field: tags
+      function: truthy
+
+  spring-cloud-gateway-tags-title-case:
+    description: Tags must be Title Case
+    message: "Tag '{{value}}' must use Title Case"
+    given: "$.paths[*][get,post,put,delete,patch].tags[*]"
+    severity: warn
+    then:
+      function: pattern
+      functionOptions:
+        match: "^[A-Z][a-zA-Z ]+$"
+
+  spring-cloud-gateway-route-id-required:
+    description: Route definitions must include an id field
+    message: "Route definition schema must require an 'id' field"
+    given: "$.components.schemas.RouteDefinition"
+    severity: error
+    then:
+      field: required
+      function: truthy
+
+  spring-cloud-gateway-route-uri-required:
+    description: Route definitions must include a uri field
+    message: "Route definition schema must require a 'uri' field"
+    given: "$.components.schemas.RouteDefinition"
+    severity: error
+    then:
+      field: required
+      function: truthy
+
+  spring-cloud-gateway-servers-defined:
+    description: At least one server must be defined
+    message: "OpenAPI spec must define at least one server"
+    given: "$"
+    severity: error
+    then:
+      field: servers
+      function: truthy
+
+  spring-cloud-gateway-path-parameters-described:
+    description: All path parameters must have a description
+    message: "Path parameter '{{value}}' is missing a description"
+    given: "$.paths[*][get,post,put,delete,patch].parameters[?(@.in == 'path')]"
+    severity: warn
+    then:
+      field: description
+      function: truthy
+
+  spring-cloud-gateway-delete-responses-defined:
+    description: DELETE operations must define response codes
+    message: "DELETE operation should define both 200 (success) and 404 (not found) responses"
+    given: "$.paths[*].delete"
+    severity: warn
+    then:
+      field: responses
+      function: truthy
