@@ -1,0 +1,253 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Spring Cloud Gateway Actuator API — Routes
+  description: 'Spring Cloud Gateway Actuator API — Routes. 6 operations. Lead operation: Refresh the Routes Cache. Self-contained
+    Naftiko capability covering one Spring Cloud Gateway business surface.'
+  tags:
+  - Spring Cloud Gateway
+  - Routes
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    SPRING_CLOUD_GATEWAY_API_KEY: SPRING_CLOUD_GATEWAY_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: actuator-routes
+    baseUri: http://localhost:8080/actuator/gateway
+    description: Spring Cloud Gateway Actuator API — Routes business capability. Self-contained, no shared references.
+    resources:
+    - name: refresh
+      path: /refresh
+      operations:
+      - name: refreshroutes
+        method: POST
+        description: Refresh the Routes Cache
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: routes
+      path: /routes
+      operations:
+      - name: getroutes
+        method: GET
+        description: List All Gateway Routes
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: createroute
+        method: POST
+        description: Create a New Route Definition
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: routes-id
+      path: /routes/{id}
+      operations:
+      - name: getroute
+        method: GET
+        description: Get a Specific Route Definition
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          description: Route identifier
+          required: true
+      - name: updateroute
+        method: PUT
+        description: Update a Route Definition
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          description: Route identifier
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+      - name: deleteroute
+        method: DELETE
+        description: Delete a Route Definition
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          description: Route identifier
+          required: true
+  exposes:
+  - type: rest
+    namespace: actuator-routes-rest
+    port: 8080
+    description: REST adapter for Spring Cloud Gateway Actuator API — Routes. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/refresh
+      name: refresh
+      description: REST surface for refresh.
+      operations:
+      - method: POST
+        name: refreshroutes
+        description: Refresh the Routes Cache
+        call: actuator-routes.refreshroutes
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/routes
+      name: routes
+      description: REST surface for routes.
+      operations:
+      - method: GET
+        name: getroutes
+        description: List All Gateway Routes
+        call: actuator-routes.getroutes
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: createroute
+        description: Create a New Route Definition
+        call: actuator-routes.createroute
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/routes/{id}
+      name: routes-id
+      description: REST surface for routes-id.
+      operations:
+      - method: GET
+        name: getroute
+        description: Get a Specific Route Definition
+        call: actuator-routes.getroute
+        with:
+          id: rest.id
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PUT
+        name: updateroute
+        description: Update a Route Definition
+        call: actuator-routes.updateroute
+        with:
+          id: rest.id
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: deleteroute
+        description: Delete a Route Definition
+        call: actuator-routes.deleteroute
+        with:
+          id: rest.id
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: actuator-routes-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Spring Cloud Gateway Actuator API — Routes. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: refresh-routes-cache
+      description: Refresh the Routes Cache
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: actuator-routes.refreshroutes
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: list-all-gateway-routes
+      description: List All Gateway Routes
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: actuator-routes.getroutes
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: create-new-route-definition
+      description: Create a New Route Definition
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: actuator-routes.createroute
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-specific-route-definition
+      description: Get a Specific Route Definition
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: actuator-routes.getroute
+      with:
+        id: tools.id
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: update-route-definition
+      description: Update a Route Definition
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: actuator-routes.updateroute
+      with:
+        id: tools.id
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: delete-route-definition
+      description: Delete a Route Definition
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: actuator-routes.deleteroute
+      with:
+        id: tools.id
+      outputParameters:
+      - type: object
+        mapping: $.

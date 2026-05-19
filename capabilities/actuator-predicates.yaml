@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Spring Cloud Gateway Actuator API — Predicates
+  description: 'Spring Cloud Gateway Actuator API — Predicates. 1 operations. Lead operation: List All Available Route Predicate
+    Factories. Self-contained Naftiko capability covering one Spring Cloud Gateway business surface.'
+  tags:
+  - Spring Cloud Gateway
+  - Predicates
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    SPRING_CLOUD_GATEWAY_API_KEY: SPRING_CLOUD_GATEWAY_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: actuator-predicates
+    baseUri: http://localhost:8080/actuator/gateway
+    description: Spring Cloud Gateway Actuator API — Predicates business capability. Self-contained, no shared references.
+    resources:
+    - name: routepredicates
+      path: /routepredicates
+      operations:
+      - name: getroutepredicates
+        method: GET
+        description: List All Available Route Predicate Factories
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: actuator-predicates-rest
+    port: 8080
+    description: REST adapter for Spring Cloud Gateway Actuator API — Predicates. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/routepredicates
+      name: routepredicates
+      description: REST surface for routepredicates.
+      operations:
+      - method: GET
+        name: getroutepredicates
+        description: List All Available Route Predicate Factories
+        call: actuator-predicates.getroutepredicates
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: actuator-predicates-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Spring Cloud Gateway Actuator API — Predicates. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: list-all-available-route-predicate
+      description: List All Available Route Predicate Factories
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: actuator-predicates.getroutepredicates
+      outputParameters:
+      - type: object
+        mapping: $.
