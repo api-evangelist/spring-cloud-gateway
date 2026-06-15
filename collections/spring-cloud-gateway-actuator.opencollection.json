@@ -1,0 +1,165 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Spring Cloud Gateway Actuator API",
+    "version": "4.1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Routes",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List All Gateway Routes",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:8080/actuator/gateway/routes"
+          },
+          "docs": "Returns all route definitions including predicates, filters, URI, order, and metadata"
+        },
+        {
+          "info": {
+            "name": "Create a New Route Definition",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://localhost:8080/actuator/gateway/routes",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a New Route Definition"
+        },
+        {
+          "info": {
+            "name": "Get a Specific Route Definition",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:8080/actuator/gateway/routes/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Route identifier"
+              }
+            ]
+          },
+          "docs": "Get a Specific Route Definition"
+        },
+        {
+          "info": {
+            "name": "Update a Route Definition",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "http://localhost:8080/actuator/gateway/routes/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Route identifier"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update a Route Definition"
+        },
+        {
+          "info": {
+            "name": "Delete a Route Definition",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "http://localhost:8080/actuator/gateway/routes/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Route identifier"
+              }
+            ]
+          },
+          "docs": "Delete a Route Definition"
+        },
+        {
+          "info": {
+            "name": "Refresh the Routes Cache",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://localhost:8080/actuator/gateway/refresh"
+          },
+          "docs": "Forces a refresh of the route definitions from the configuration source"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Filters",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List All Global Filters",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:8080/actuator/gateway/globalfilters"
+          },
+          "docs": "Returns all global filters with their ordering values"
+        },
+        {
+          "info": {
+            "name": "List All Available Route Filter Factories",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:8080/actuator/gateway/routefilters"
+          },
+          "docs": "Returns all available GatewayFilter factories registered in the application"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Predicates",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List All Available Route Predicate Factories",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:8080/actuator/gateway/routepredicates"
+          },
+          "docs": "Returns all available RoutePredicateFactory implementations"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

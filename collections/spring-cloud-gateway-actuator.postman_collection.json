@@ -1,0 +1,837 @@
+{
+  "item": [
+    {
+      "id": "1f4e3ea0-965c-4ed5-99ef-4519a26a5578",
+      "name": "Filters",
+      "description": {
+        "content": "Manage global and route filter factories",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "95857053-7cfa-4f79-aa12-965f542014df",
+          "name": "List All Global Filters",
+          "request": {
+            "name": "List All Global Filters",
+            "description": {
+              "content": "Returns all global filters with their ordering values",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "globalfilters"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "dcaa6911-c425-4ed7-94e3-5c55aa739dd5",
+              "name": "Global filter list with ordering",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "globalfilters"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"key_0\": 5180,\n  \"key_1\": 6017\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "cbd8f19f-795c-4bfa-8a40-208f53ec4763",
+          "name": "List All Available Route Filter Factories",
+          "request": {
+            "name": "List All Available Route Filter Factories",
+            "description": {
+              "content": "Returns all available GatewayFilter factories registered in the application",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "routefilters"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e705db72-9f85-495b-8ade-4c6953812ed1",
+              "name": "Available GatewayFilter factories",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "routefilters"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"key_0\": {},\n  \"key_1\": {},\n  \"key_2\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "04ac0639-2657-4eb7-9456-538b2c582527",
+      "name": "Predicates",
+      "description": {
+        "content": "Query available route predicate factories",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "03ddd0b3-27c4-40c2-8708-29eb100fe826",
+          "name": "List All Available Route Predicate Factories",
+          "request": {
+            "name": "List All Available Route Predicate Factories",
+            "description": {
+              "content": "Returns all available RoutePredicateFactory implementations",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "routepredicates"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d4ed8f2b-c3ca-4306-ad27-ca0fd8e202c0",
+              "name": "Available RoutePredicateFactory implementations",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "routepredicates"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"key_0\": {},\n  \"key_1\": {},\n  \"key_2\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "3ab5d314-5688-4240-9de0-3043b740839f",
+      "name": "Routes",
+      "description": {
+        "content": "Manage gateway route definitions at runtime",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "a6ce8583-14f5-4938-9d03-710e12347243",
+          "name": "List All Gateway Routes",
+          "request": {
+            "name": "List All Gateway Routes",
+            "description": {
+              "content": "Returns all route definitions including predicates, filters, URI, order, and metadata",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "routes"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c1db6f35-2071-47fc-984f-f319192f5152",
+              "name": "List of route definitions",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "routes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": \"string\",\n    \"uri\": \"string\",\n    \"predicates\": [\n      {\n        \"name\": \"string\",\n        \"args\": {\n          \"key_0\": \"string\",\n          \"key_1\": \"string\"\n        }\n      },\n      {\n        \"name\": \"string\",\n        \"args\": {\n          \"key_0\": \"string\",\n          \"key_1\": \"string\"\n        }\n      }\n    ],\n    \"filters\": [\n      {\n        \"name\": \"string\",\n        \"args\": {\n          \"key_0\": \"string\"\n        }\n      },\n      {\n        \"name\": \"string\",\n        \"args\": {\n          \"key_0\": \"string\"\n        }\n      }\n    ],\n    \"order\": 1302,\n    \"metadata\": {\n      \"key_0\": \"string\",\n      \"key_1\": \"string\",\n      \"key_2\": 9335\n    }\n  },\n  {\n    \"id\": \"string\",\n    \"uri\": \"string\",\n    \"predicates\": [\n      {\n        \"name\": \"string\",\n        \"args\": {\n          \"key_0\": \"string\",\n          \"key_1\": \"string\"\n        }\n      },\n      {\n        \"name\": \"string\",\n        \"args\": {\n          \"key_0\": \"string\"\n        }\n      }\n    ],\n    \"filters\": [\n      {\n        \"name\": \"string\",\n        \"args\": {\n          \"key_0\": \"string\",\n          \"key_1\": \"string\"\n        }\n      },\n      {\n        \"name\": \"string\",\n        \"args\": {\n          \"key_0\": \"string\"\n        }\n      }\n    ],\n    \"order\": 8153,\n    \"metadata\": {\n      \"key_0\": \"string\"\n    }\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5e008617-297a-4bee-af73-2b9e25c2f348",
+          "name": "Create a New Route Definition",
+          "request": {
+            "name": "Create a New Route Definition",
+            "description": {},
+            "url": {
+              "path": [
+                "routes"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"<string>\",\n  \"uri\": \"<string>\",\n  \"predicates\": [\n    {\n      \"name\": \"<string>\",\n      \"args\": {\n        \"key_0\": \"<string>\",\n        \"key_1\": \"<string>\",\n        \"key_2\": \"<string>\"\n      }\n    },\n    {\n      \"name\": \"<string>\",\n      \"args\": {\n        \"key_0\": \"<string>\"\n      }\n    }\n  ],\n  \"filters\": [\n    {\n      \"name\": \"<string>\",\n      \"args\": {\n        \"key_0\": \"<string>\",\n        \"key_1\": \"<string>\"\n      }\n    },\n    {\n      \"name\": \"<string>\",\n      \"args\": {\n        \"key_0\": \"<string>\",\n        \"key_1\": \"<string>\"\n      }\n    }\n  ],\n  \"order\": \"<integer>\",\n  \"metadata\": {\n    \"key_0\": false,\n    \"key_1\": false,\n    \"key_2\": \"string\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "3f4626f9-52f2-4eac-904a-2c557ffd0a6f",
+              "name": "Route created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "routes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<string>\",\n  \"uri\": \"<string>\",\n  \"predicates\": [\n    {\n      \"name\": \"<string>\",\n      \"args\": {\n        \"key_0\": \"<string>\"\n      }\n    },\n    {\n      \"name\": \"<string>\",\n      \"args\": {\n        \"key_0\": \"<string>\",\n        \"key_1\": \"<string>\"\n      }\n    }\n  ],\n  \"filters\": [\n    {\n      \"name\": \"<string>\",\n      \"args\": {\n        \"key_0\": \"<string>\",\n        \"key_1\": \"<string>\",\n        \"key_2\": \"<string>\",\n        \"key_3\": \"<string>\"\n      }\n    },\n    {\n      \"name\": \"<string>\",\n      \"args\": {\n        \"key_0\": \"<string>\"\n      }\n    }\n  ],\n  \"order\": \"<integer>\",\n  \"metadata\": {\n    \"key_0\": 3936,\n    \"key_1\": \"string\",\n    \"key_2\": false\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "89bfa3e4-8342-412f-94b2-e7bc2ff03935",
+              "name": "Invalid route definition",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "routes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<string>\",\n  \"uri\": \"<string>\",\n  \"predicates\": [\n    {\n      \"name\": \"<string>\",\n      \"args\": {\n        \"key_0\": \"<string>\"\n      }\n    },\n    {\n      \"name\": \"<string>\",\n      \"args\": {\n        \"key_0\": \"<string>\",\n        \"key_1\": \"<string>\"\n      }\n    }\n  ],\n  \"filters\": [\n    {\n      \"name\": \"<string>\",\n      \"args\": {\n        \"key_0\": \"<string>\",\n        \"key_1\": \"<string>\",\n        \"key_2\": \"<string>\",\n        \"key_3\": \"<string>\"\n      }\n    },\n    {\n      \"name\": \"<string>\",\n      \"args\": {\n        \"key_0\": \"<string>\"\n      }\n    }\n  ],\n  \"order\": \"<integer>\",\n  \"metadata\": {\n    \"key_0\": 3936,\n    \"key_1\": \"string\",\n    \"key_2\": false\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "41652bff-a294-4cbc-a907-c1cbc732751b",
+          "name": "Get a Specific Route Definition",
+          "request": {
+            "name": "Get a Specific Route Definition",
+            "description": {},
+            "url": {
+              "path": [
+                "routes",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Route identifier"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7829a921-a674-4447-bd1f-7ac65a34e168",
+              "name": "Route definition",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "routes",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Route identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"<string>\",\n  \"uri\": \"<string>\",\n  \"predicates\": [\n    {\n      \"name\": \"<string>\",\n      \"args\": {\n        \"key_0\": \"<string>\"\n      }\n    },\n    {\n      \"name\": \"<string>\",\n      \"args\": {\n        \"key_0\": \"<string>\",\n        \"key_1\": \"<string>\"\n      }\n    }\n  ],\n  \"filters\": [\n    {\n      \"name\": \"<string>\",\n      \"args\": {\n        \"key_0\": \"<string>\",\n        \"key_1\": \"<string>\",\n        \"key_2\": \"<string>\",\n        \"key_3\": \"<string>\"\n      }\n    },\n    {\n      \"name\": \"<string>\",\n      \"args\": {\n        \"key_0\": \"<string>\"\n      }\n    }\n  ],\n  \"order\": \"<integer>\",\n  \"metadata\": {\n    \"key_0\": 3936,\n    \"key_1\": \"string\",\n    \"key_2\": false\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "60d252ba-8121-4fc0-85eb-25b8428aa5da",
+              "name": "Route not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "routes",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Route identifier"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d1273101-eb59-4a82-8679-ff592db8d17d",
+          "name": "Update a Route Definition",
+          "request": {
+            "name": "Update a Route Definition",
+            "description": {},
+            "url": {
+              "path": [
+                "routes",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Route identifier"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"<string>\",\n  \"uri\": \"<string>\",\n  \"predicates\": [\n    {\n      \"name\": \"<string>\",\n      \"args\": {\n        \"key_0\": \"<string>\",\n        \"key_1\": \"<string>\",\n        \"key_2\": \"<string>\"\n      }\n    },\n    {\n      \"name\": \"<string>\",\n      \"args\": {\n        \"key_0\": \"<string>\"\n      }\n    }\n  ],\n  \"filters\": [\n    {\n      \"name\": \"<string>\",\n      \"args\": {\n        \"key_0\": \"<string>\",\n        \"key_1\": \"<string>\"\n      }\n    },\n    {\n      \"name\": \"<string>\",\n      \"args\": {\n        \"key_0\": \"<string>\",\n        \"key_1\": \"<string>\"\n      }\n    }\n  ],\n  \"order\": \"<integer>\",\n  \"metadata\": {\n    \"key_0\": false,\n    \"key_1\": false,\n    \"key_2\": \"string\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "7c73f8bb-0248-496d-af85-bf5fb2607d6a",
+              "name": "Route updated",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "routes",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Route identifier"
+                    }
+                  ]
+                },
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<string>\",\n  \"uri\": \"<string>\",\n  \"predicates\": [\n    {\n      \"name\": \"<string>\",\n      \"args\": {\n        \"key_0\": \"<string>\"\n      }\n    },\n    {\n      \"name\": \"<string>\",\n      \"args\": {\n        \"key_0\": \"<string>\",\n        \"key_1\": \"<string>\"\n      }\n    }\n  ],\n  \"filters\": [\n    {\n      \"name\": \"<string>\",\n      \"args\": {\n        \"key_0\": \"<string>\",\n        \"key_1\": \"<string>\",\n        \"key_2\": \"<string>\",\n        \"key_3\": \"<string>\"\n      }\n    },\n    {\n      \"name\": \"<string>\",\n      \"args\": {\n        \"key_0\": \"<string>\"\n      }\n    }\n  ],\n  \"order\": \"<integer>\",\n  \"metadata\": {\n    \"key_0\": 3936,\n    \"key_1\": \"string\",\n    \"key_2\": false\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c37439ad-4819-416f-8898-e2e37b1acb47",
+          "name": "Delete a Route Definition",
+          "request": {
+            "name": "Delete a Route Definition",
+            "description": {},
+            "url": {
+              "path": [
+                "routes",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Route identifier"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "30646e69-edbb-40e5-a311-20ac093d2d9d",
+              "name": "Route deleted",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "routes",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Route identifier"
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "0bb64cd1-22c2-4f75-a029-be4e0680259f",
+              "name": "Route not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "routes",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Route identifier"
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "64a8f965-9af8-428b-a03c-14f34b16efaa",
+          "name": "Refresh the Routes Cache",
+          "request": {
+            "name": "Refresh the Routes Cache",
+            "description": {
+              "content": "Forces a refresh of the route definitions from the configuration source",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "refresh"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a92f03f1-c13b-4909-a255-bd4f7a88d10a",
+              "name": "Routes refreshed successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "refresh"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "http://localhost:8080/actuator/gateway",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "cc11c9ac-6e0b-435c-96ec-d9ee6ed4d39e",
+    "name": "Spring Cloud Gateway Actuator API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Actuator endpoints exposed by Spring Cloud Gateway for managing routes, global filters, and route filter factories at runtime. These endpoints are available under the /actuator/gateway path and allow dynamic route management without application restart.\n\nContact Support:\n Name: Spring Cloud Team",
+      "type": "text/plain"
+    }
+  }
+}
