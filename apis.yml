@@ -4,7 +4,7 @@ description: >-
   Spring Cloud Gateway provides an intelligent, programmable router built on Spring WebFlux that serves as the entry
   point to microservice architectures. It offers routing, predicate evaluation, filter chaining, load balancing, circuit
   breaking, rate limiting, and runtime route management through an Actuator API.
-image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 url: https://spring.io/projects/spring-cloud-gateway
 created: '2026-03-16'
 modified: '2026-05-19'
