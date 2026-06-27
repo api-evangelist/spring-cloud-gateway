@@ -68,7 +68,7 @@ apis:
         url: https://spring.io/projects/spring-cloud-gateway#learn
       - type: GitHub
         url: https://github.com/spring-cloud/spring-cloud-gateway
-      - type: Releases
+      - type: ReleaseNotes
         url: https://github.com/spring-cloud/spring-cloud-gateway/releases
 common:
   - type: Website
@@ -81,7 +81,7 @@ common:
     url: https://github.com/spring-cloud
   - type: Issues
     url: https://github.com/spring-cloud/spring-cloud-gateway/issues
-  - type: Releases
+  - type: ReleaseNotes
     url: https://github.com/spring-cloud/spring-cloud-gateway/releases
   - type: StackOverflow
     url: https://stackoverflow.com/questions/tagged/spring-cloud-gateway
