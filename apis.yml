@@ -71,6 +71,12 @@ apis:
       - type: ReleaseNotes
         url: https://github.com/spring-cloud/spring-cloud-gateway/releases
 common:
+  - type: VulnerabilityDisclosure
+    url: security/spring-cloud-gateway-vulnerability-disclosure.yml
+  - type: DomainSecurity
+    url: security/spring-cloud-gateway-domain-security.yml
+  - url: https://spring.io/blog.atom
+    type: Blog
   - type: Website
     url: https://spring.io/projects/spring-cloud-gateway
   - type: Documentation
