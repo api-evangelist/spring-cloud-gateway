@@ -71,6 +71,8 @@ apis:
       - type: ReleaseNotes
         url: https://github.com/spring-cloud/spring-cloud-gateway/releases
 common:
+  - type: AgenticAccess
+    url: agentic-access/spring-cloud-gateway-agentic-access.yml
   - type: VulnerabilityDisclosure
     url: security/spring-cloud-gateway-vulnerability-disclosure.yml
   - type: DomainSecurity
