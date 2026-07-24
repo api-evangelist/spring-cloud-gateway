@@ -1,0 +1,51 @@
+openapi: 3.0.3
+info:
+  title: Spring Cloud Gateway Actuator Filters API
+  description: Actuator endpoints exposed by Spring Cloud Gateway for managing routes, global filters, and route filter factories at runtime. These endpoints are available under the /actuator/gateway path and allow dynamic route management without application restart.
+  version: 4.1.0
+  contact:
+    name: Spring Cloud Team
+    url: https://spring.io/projects/spring-cloud-gateway
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+servers:
+- url: http://localhost:8080/actuator/gateway
+  description: Default Gateway Actuator base path
+tags:
+- name: Filters
+  description: Manage global and route filter factories
+paths:
+  /globalfilters:
+    get:
+      operationId: getGlobalFilters
+      summary: List All Global Filters
+      description: Returns all global filters with their ordering values
+      tags:
+      - Filters
+      responses:
+        '200':
+          description: Global filter list with ordering
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: integer
+                description: Map of filter class name to order
+  /routefilters:
+    get:
+      operationId: getRouteFilters
+      summary: List All Available Route Filter Factories
+      description: Returns all available GatewayFilter factories registered in the application
+      tags:
+      - Filters
+      responses:
+        '200':
+          description: Available GatewayFilter factories
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object

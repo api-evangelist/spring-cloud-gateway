@@ -1,11 +1,7 @@
 openapi: 3.0.3
 info:
-  title: Spring Cloud Gateway Actuator API
-  description: >-
-    Actuator endpoints exposed by Spring Cloud Gateway for managing routes,
-    global filters, and route filter factories at runtime. These endpoints are
-    available under the /actuator/gateway path and allow dynamic route
-    management without application restart.
+  title: Spring Cloud Gateway Actuator Filters Routes API
+  description: Actuator endpoints exposed by Spring Cloud Gateway for managing routes, global filters, and route filter factories at runtime. These endpoints are available under the /actuator/gateway path and allow dynamic route management without application restart.
   version: 4.1.0
   contact:
     name: Spring Cloud Team
@@ -14,8 +10,11 @@ info:
     name: Apache 2.0
     url: https://www.apache.org/licenses/LICENSE-2.0
 servers:
-  - url: http://localhost:8080/actuator/gateway
-    description: Default Gateway Actuator base path
+- url: http://localhost:8080/actuator/gateway
+  description: Default Gateway Actuator base path
+tags:
+- name: Routes
+  description: Manage gateway route definitions at runtime
 paths:
   /routes:
     get:
@@ -23,7 +22,7 @@ paths:
       summary: List All Gateway Routes
       description: Returns all route definitions including predicates, filters, URI, order, and metadata
       tags:
-        - Routes
+      - Routes
       responses:
         '200':
           description: List of route definitions
@@ -37,7 +36,7 @@ paths:
       operationId: createRoute
       summary: Create a New Route Definition
       tags:
-        - Routes
+      - Routes
       requestBody:
         required: true
         content:
@@ -54,14 +53,14 @@ paths:
       operationId: getRoute
       summary: Get a Specific Route Definition
       tags:
-        - Routes
+      - Routes
       parameters:
-        - name: id
-          in: path
-          required: true
-          schema:
-            type: string
-          description: Route identifier
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: Route identifier
       responses:
         '200':
           description: Route definition
@@ -75,14 +74,14 @@ paths:
       operationId: updateRoute
       summary: Update a Route Definition
       tags:
-        - Routes
+      - Routes
       parameters:
-        - name: id
-          in: path
-          required: true
-          schema:
-            type: string
-          description: Route identifier
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: Route identifier
       requestBody:
         required: true
         content:
@@ -96,14 +95,14 @@ paths:
       operationId: deleteRoute
       summary: Delete a Route Definition
       tags:
-        - Routes
+      - Routes
       parameters:
-        - name: id
-          in: path
-          required: true
-          schema:
-            type: string
-          description: Route identifier
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: Route identifier
       responses:
         '200':
           description: Route deleted
@@ -115,67 +114,18 @@ paths:
       summary: Refresh the Routes Cache
       description: Forces a refresh of the route definitions from the configuration source
       tags:
-        - Routes
+      - Routes
       responses:
         '200':
           description: Routes refreshed successfully
-  /globalfilters:
-    get:
-      operationId: getGlobalFilters
-      summary: List All Global Filters
-      description: Returns all global filters with their ordering values
-      tags:
-        - Filters
-      responses:
-        '200':
-          description: Global filter list with ordering
-          content:
-            application/json:
-              schema:
-                type: object
-                additionalProperties:
-                  type: integer
-                description: Map of filter class name to order
-  /routefilters:
-    get:
-      operationId: getRouteFilters
-      summary: List All Available Route Filter Factories
-      description: Returns all available GatewayFilter factories registered in the application
-      tags:
-        - Filters
-      responses:
-        '200':
-          description: Available GatewayFilter factories
-          content:
-            application/json:
-              schema:
-                type: object
-                additionalProperties:
-                  type: object
-  /routepredicates:
-    get:
-      operationId: getRoutePredicates
-      summary: List All Available Route Predicate Factories
-      description: Returns all available RoutePredicateFactory implementations
-      tags:
-        - Predicates
-      responses:
-        '200':
-          description: Available RoutePredicateFactory implementations
-          content:
-            application/json:
-              schema:
-                type: object
-                additionalProperties:
-                  type: object
 components:
   schemas:
     RouteDefinition:
       type: object
       required:
-        - id
-        - uri
-        - predicates
+      - id
+      - uri
+      - predicates
       properties:
         id:
           type: string
@@ -200,17 +150,6 @@ components:
           type: object
           additionalProperties: true
           description: Additional route metadata
-    PredicateDefinition:
-      type: object
-      properties:
-        name:
-          type: string
-          description: Predicate factory name (e.g., Path, Host, Method)
-        args:
-          type: object
-          additionalProperties:
-            type: string
-          description: Predicate configuration arguments
     FilterDefinition:
       type: object
       properties:
@@ -222,10 +161,14 @@ components:
           additionalProperties:
             type: string
           description: Filter configuration arguments
-tags:
-  - name: Filters
-    description: Manage global and route filter factories
-  - name: Predicates
-    description: Query available route predicate factories
-  - name: Routes
-    description: Manage gateway route definitions at runtime
+    PredicateDefinition:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Predicate factory name (e.g., Path, Host, Method)
+        args:
+          type: object
+          additionalProperties:
+            type: string
+          description: Predicate configuration arguments

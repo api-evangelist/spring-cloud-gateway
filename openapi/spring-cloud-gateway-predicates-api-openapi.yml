@@ -1,0 +1,34 @@
+openapi: 3.0.3
+info:
+  title: Spring Cloud Gateway Actuator Filters Predicates API
+  description: Actuator endpoints exposed by Spring Cloud Gateway for managing routes, global filters, and route filter factories at runtime. These endpoints are available under the /actuator/gateway path and allow dynamic route management without application restart.
+  version: 4.1.0
+  contact:
+    name: Spring Cloud Team
+    url: https://spring.io/projects/spring-cloud-gateway
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+servers:
+- url: http://localhost:8080/actuator/gateway
+  description: Default Gateway Actuator base path
+tags:
+- name: Predicates
+  description: Query available route predicate factories
+paths:
+  /routepredicates:
+    get:
+      operationId: getRoutePredicates
+      summary: List All Available Route Predicate Factories
+      description: Returns all available RoutePredicateFactory implementations
+      tags:
+      - Predicates
+      responses:
+        '200':
+          description: Available RoutePredicateFactory implementations
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
