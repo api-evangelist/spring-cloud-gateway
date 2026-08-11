@@ -115,6 +115,12 @@ apis:
   - type: SpectralRules
     url: rules/spring-cloud-gateway-rules.yml
 common:
+  - type: Support
+    url: https://spring.io/support
+  - type: Security
+    url: https://spring.io/security
+  - type: GettingStarted
+    url: https://spring.io/quickstart
   - type: AgenticAccess
     url: agentic-access/spring-cloud-gateway-agentic-access.yml
   - type: VulnerabilityDisclosure
