@@ -4,6 +4,17 @@ description: >-
   Spring Cloud Gateway provides an intelligent, programmable router built on Spring WebFlux that serves as the entry
   point to microservice architectures. It offers routing, predicate evaluation, filter chaining, load balancing, circuit
   breaking, rate limiting, and runtime route management through an Actuator API.
+deliveryModel:
+  model: unknown
+  open_source: false
+  commercial: false
+  callable_host: false
+  label: Delivery model not determined — needs a product licence on record
+  confidence: low
+  source:
+  - openapi
+  generated: '2026-08-11'
+  method: derived
 accessModel:
   pricing: freemium
   onboarding: unknown
