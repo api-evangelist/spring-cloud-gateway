@@ -1,0 +1,102 @@
+{
+  "item": [
+    {
+      "id": "796bfeb9-a1e6-4d2c-8b84-944ecf6cd8b0",
+      "name": "Predicates",
+      "description": {
+        "content": "Query available route predicate factories",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "e331b145-3882-4074-b936-5baf0d3ef54f",
+          "name": "List All Available Route Predicate Factories",
+          "request": {
+            "name": "List All Available Route Predicate Factories",
+            "description": {
+              "content": "Returns all available RoutePredicateFactory implementations",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "routepredicates"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7fb2b72e-2d40-4b82-8f7d-151044feb3f6",
+              "name": "Available RoutePredicateFactory implementations",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "routepredicates"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"key_0\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "http://localhost:8080/actuator/gateway",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "85b566f2-bc47-42e1-a642-1a9a557b6afa",
+    "name": "Spring Cloud Gateway Actuator Filters Predicates API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Actuator endpoints exposed by Spring Cloud Gateway for managing routes, global filters, and route filter factories at runtime. These endpoints are available under the /actuator/gateway path and allow dynamic route management without application restart.\n\nContact Support:\n Name: Spring Cloud Team",
+      "type": "text/plain"
+    }
+  }
+}

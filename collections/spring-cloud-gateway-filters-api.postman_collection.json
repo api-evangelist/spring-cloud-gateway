@@ -1,0 +1,172 @@
+{
+  "item": [
+    {
+      "id": "af195b6c-df72-4215-8ff2-8eec21e1f819",
+      "name": "Filters",
+      "description": {
+        "content": "Manage global and route filter factories",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "748c6a88-4422-438b-b9c3-cb32db71420f",
+          "name": "List All Global Filters",
+          "request": {
+            "name": "List All Global Filters",
+            "description": {
+              "content": "Returns all global filters with their ordering values",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "globalfilters"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "923adab3-6592-4d31-8bbb-13e126bf91fa",
+              "name": "Global filter list with ordering",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "globalfilters"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"key_0\": 824\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4899b5a4-7757-4655-8751-8bbc2ae528b7",
+          "name": "List All Available Route Filter Factories",
+          "request": {
+            "name": "List All Available Route Filter Factories",
+            "description": {
+              "content": "Returns all available GatewayFilter factories registered in the application",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "routefilters"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "45893297-14a2-45fd-81d6-2c1d23a4dde2",
+              "name": "Available GatewayFilter factories",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "routefilters"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"key_0\": {},\n  \"key_1\": {},\n  \"key_2\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "http://localhost:8080/actuator/gateway",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "12e9d585-12ad-4e57-9c21-2484b17f1262",
+    "name": "Spring Cloud Gateway Actuator Filters API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Actuator endpoints exposed by Spring Cloud Gateway for managing routes, global filters, and route filter factories at runtime. These endpoints are available under the /actuator/gateway path and allow dynamic route management without application restart.\n\nContact Support:\n Name: Spring Cloud Team",
+      "type": "text/plain"
+    }
+  }
+}

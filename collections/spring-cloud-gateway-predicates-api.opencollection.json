@@ -1,0 +1,29 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Spring Cloud Gateway Actuator Filters Predicates API",
+    "version": "4.1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Predicates",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List All Available Route Predicate Factories",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:8080/actuator/gateway/routepredicates"
+          },
+          "docs": "Returns all available RoutePredicateFactory implementations"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
