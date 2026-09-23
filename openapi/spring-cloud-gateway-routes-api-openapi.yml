@@ -1,6 +1,6 @@
 openapi: 3.2.0
 info:
-  title: Spring Cloud Gateway Actuator Filters Routes API
+  title: Spring Cloud Gateway Actuator Routes API
   description: Actuator endpoints exposed by Spring Cloud Gateway for managing routes, global filters, and route filter factories at runtime. These endpoints are available under the /actuator/gateway path and allow dynamic route management without application restart.
   version: 4.1.0
   contact:
@@ -120,17 +120,6 @@ paths:
           description: Routes refreshed successfully
 components:
   schemas:
-    PredicateDefinition:
-      type: object
-      properties:
-        name:
-          type: string
-          description: Predicate factory name (e.g., Path, Host, Method)
-        args:
-          type: object
-          additionalProperties:
-            type: string
-          description: Predicate configuration arguments
     RouteDefinition:
       type: object
       required:
@@ -172,3 +161,14 @@ components:
           additionalProperties:
             type: string
           description: Filter configuration arguments
+    PredicateDefinition:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Predicate factory name (e.g., Path, Host, Method)
+        args:
+          type: object
+          additionalProperties:
+            type: string
+          description: Predicate configuration arguments
