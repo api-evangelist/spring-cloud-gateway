@@ -120,17 +120,6 @@ paths:
           description: Routes refreshed successfully
 components:
   schemas:
-    FilterDefinition:
-      type: object
-      properties:
-        name:
-          type: string
-          description: Filter factory name (e.g., AddRequestHeader, RewritePath)
-        args:
-          type: object
-          additionalProperties:
-            type: string
-          description: Filter configuration arguments
     PredicateDefinition:
       type: object
       properties:
@@ -172,3 +161,14 @@ components:
           type: object
           additionalProperties: true
           description: Additional route metadata
+    FilterDefinition:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Filter factory name (e.g., AddRequestHeader, RewritePath)
+        args:
+          type: object
+          additionalProperties:
+            type: string
+          description: Filter configuration arguments
