@@ -1,4 +1,4 @@
-# Spring Cloud Gateway (spring-cloud-gateway)
+# Spring Cloud Gateway
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,90 +66,162 @@
 
 Spring Cloud Gateway provides an intelligent, programmable router built on Spring WebFlux that serves as the entry point to microservice architectures. It offers routing, predicate evaluation, filter chaining, load balancing, circuit breaking, rate limiting, and runtime route management through an Actuator API.
 
-**APIs.json:** [https://spring.io/projects/spring-cloud-gateway](https://spring.io/projects/spring-cloud-gateway)
+**Areas:** API Gateway · Circuit Breaker · Load Balancing · Microservices · Rate Limiting · Routing · Spring · Spring WebFlux
 
-## Tags
+## Spring Cloud Gateway on APIs.io
 
-- API Gateway
-- Circuit Breaker
-- Load Balancing
-- Microservices
-- Rate Limiting
-- Routing
-- Spring
-- Spring WebFlux
+Everything profiled for Spring Cloud Gateway is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/spring-cloud-gateway/](https://apis.io/providers/spring-cloud-gateway/)** — or go straight to one of the APIs or properties below.
 
-## Timestamps
+### APIs (4)
 
-- **Created:** 2026-03-16
-- **Modified:** 2026-05-19
+- [Spring Cloud Gateway Core](https://apis.io/apis/spring-cloud-gateway/spring-cloud-gateway-core/) — Core routing and filtering capabilities including predicate factories (Path, Host, Method, Header, Query, Cookie, Weight, RemoteAddr), gateway filter…
+- [Spring Cloud Gateway Filters API](https://apis.io/apis/spring-cloud-gateway/spring-cloud-gateway-filters-api/) — Manage global and route filter factories
+- [Spring Cloud Gateway Predicates API](https://apis.io/apis/spring-cloud-gateway/spring-cloud-gateway-predicates-api/) — Query available route predicate factories
+- [Spring Cloud Gateway Routes API](https://apis.io/apis/spring-cloud-gateway/spring-cloud-gateway-routes-api/) — Manage gateway route definitions at runtime
 
-## APIs
+### Published properties
 
-### Spring Cloud Gateway Actuator API
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-Runtime management API for Spring Cloud Gateway exposing endpoints for retrieving, creating, updating, and deleting route definitions. Also provides access to global filters, route filter factories, route predicate factories, and cache refresh capabilities.
+#### Agentic access (1)
 
-- **Human URL:** [https://docs.spring.io/spring-cloud-gateway/docs/current/reference/html/#actuator-api](https://docs.spring.io/spring-cloud-gateway/docs/current/reference/html/#actuator-api)
-- **Base URL:** `http://localhost:8080/actuator/gateway`
+Which operations an agent can call, which act, and which need a human in the loop.
 
-#### Tags
+- [Spring Cloud Gateway Agentic Access](https://apis.io/agentic-access/spring-cloud-gateway/spring-cloud-gateway-agentic-access/)
 
-- Actuator
-- API Gateway
-- Filters
-- Management
-- Monitoring
-- Routes
+#### JSON Schema (1)
 
-#### Properties
+The data models the API reads and writes.
 
-- [Documentation](https://docs.spring.io/spring-cloud-gateway/docs/current/reference/html/#actuator-api)
-- [OpenAPI](openapi/spring-cloud-gateway-actuator-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/spring-cloud-gateway-actuator.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/spring-cloud-gateway-actuator.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [JSON Schema](json-schema/spring-cloud-gateway-route-schema.json) — [JSON Schema](https://json-schema.org/specification)
-- [JSON Structure](json-structure/spring-cloud-gateway-route-structure.json)
-- [J S O N L D Context](json-ld/spring-cloud-gateway-context.jsonld)
-- [Spectral Rules](rules/spring-cloud-gateway-rules.yml)
+- [Spring Cloud Gateway Route Definition](https://apis.io/schemas/spring-cloud-gateway/spring-cloud-gateway-route/)
 
-### Spring Cloud Gateway Core
+#### JSON Structure (1)
 
-Core routing and filtering capabilities including predicate factories (Path, Host, Method, Header, Query, Cookie, Weight, RemoteAddr), gateway filter factories (AddRequestHeader, RewritePath, RequestRateLimiter, CircuitBreaker, Retry), and global filters for proxying requests to downstream services.
+Data models expressed in JSON Structure.
 
-- **Human URL:** [https://spring.io/projects/spring-cloud-gateway](https://spring.io/projects/spring-cloud-gateway)
-- **Base URL:** `http://localhost:8080`
+- [Spring Cloud Gateway Route Structure](https://apis.io/json-structure/spring-cloud-gateway/spring-cloud-gateway-route-structure/)
 
-#### Tags
+#### JSON-LD (1)
 
-- API Gateway
-- Filtering
-- Load Balancing
-- Predicates
-- Routing
+Linked-data contexts for the provider's vocabulary.
 
-#### Properties
+- [Spring Cloud Gateway Context](https://apis.io/jsonld/spring-cloud-gateway/spring-cloud-gateway-context/)
 
-- [Documentation](https://docs.spring.io/spring-cloud-gateway/docs/current/reference/html/)
-- [Getting Started](https://spring.io/projects/spring-cloud-gateway#learn)
-- [Git Hub](https://github.com/spring-cloud/spring-cloud-gateway)
-- [Releases](https://github.com/spring-cloud/spring-cloud-gateway/releases)
-- [Postman Collection](collections/spring-cloud-gateway-actuator.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/spring-cloud-gateway-actuator.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+#### Vocabulary (1)
 
-## Common Properties
+The provider's domain terms, defined.
+
+- [Spring Cloud Gateway Vocabulary](https://apis.io/vocabularies/spring-cloud-gateway/spring-cloud-gateway-vocabulary/)
+
+#### Examples (2)
+
+Example requests and responses.
+
+- [Spring Cloud Gateway Create Route Example](https://apis.io/examples/spring-cloud-gateway/spring-cloud-gateway-create-route-example/)
+- [Spring Cloud Gateway List Routes Example](https://apis.io/examples/spring-cloud-gateway/spring-cloud-gateway-list-routes-example/)
+
+#### Collections (4)
+
+Postman and Open Collection request collections.
+
+- [Spring Cloud Gateway Actuator API](https://apis.io/collections/spring-cloud-gateway/open-spring-cloud-gateway-actuator/)
+- [Spring Cloud Gateway Actuator Filters API](https://apis.io/collections/spring-cloud-gateway/open-spring-cloud-gateway-filters-api/)
+- [Spring Cloud Gateway Actuator Filters Predicates API](https://apis.io/collections/spring-cloud-gateway/open-spring-cloud-gateway-predicates-api/)
+- [Spring Cloud Gateway Actuator Filters Routes API](https://apis.io/collections/spring-cloud-gateway/open-spring-cloud-gateway-routes-api/)
+
+#### Governance rules (2)
+
+Spectral rulesets for the provider's contracts.
+
+- [Spring Cloud Gateway — jsonschema rules](https://apis.io/rules/spring-cloud-gateway/spring-cloud-gateway-jsonschema-spectral-rules/)
+- [Spring Cloud Gateway API Rules](https://apis.io/rules/spring-cloud-gateway/spring-cloud-gateway-rules/)
+
+#### Security (2)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Spring Cloud Gateway Domain Security](https://apis.io/security/spring-cloud-gateway/spring-cloud-gateway-domain-security/)
+- [Spring Cloud Gateway Vulnerability Disclosure](https://apis.io/security/spring-cloud-gateway/spring-cloud-gateway-vulnerability-disclosure/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Spring Cloud Gateway Plans Pricing](https://apis.io/plans/spring-cloud-gateway/spring-cloud-gateway-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Spring Cloud Gateway Rate Limits](https://apis.io/rate-limits/spring-cloud-gateway/spring-cloud-gateway-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Spring Cloud Gateway Finops](https://apis.io/finops/spring-cloud-gateway/spring-cloud-gateway-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
 - [Website](https://spring.io/projects/spring-cloud-gateway)
 - [Documentation](https://docs.spring.io/spring-cloud-gateway/docs/current/reference/html/)
-- [Git Hub](https://github.com/spring-cloud/spring-cloud-gateway)
-- [GitHub Organization](https://github.com/spring-cloud)
-- [Issues](https://github.com/spring-cloud/spring-cloud-gateway/issues)
-- [Releases](https://github.com/spring-cloud/spring-cloud-gateway/releases)
-- [Stack Overflow](https://stackoverflow.com/questions/tagged/spring-cloud-gateway)
-- [Maven  Repository](https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-gateway-server)
-- [Vocabulary](vocabulary/spring-cloud-gateway-vocabulary.yml)
+- [Getting started](https://spring.io/quickstart)
+- [Support](https://spring.io/support)
+- [Blog](https://spring.io/blog.atom)
+- [Security](https://spring.io/security)
+- [GitHub](https://github.com/spring-cloud)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 34.0** — thin · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 64.3 |
+| Contract quality | 50.7 |
+| Contract governance | 27.3 |
+| Operational transparency | 36.8 |
+| Developer ergonomics | 28.6 |
+| Access clarity | 7.9 |
+
+**Agent readiness 15.4** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | — |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 16.7** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/spring-cloud-gateway/](https://apis.io/providers/spring-cloud-gateway/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Spring Cloud Gateway: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/spring-cloud-gateway/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
